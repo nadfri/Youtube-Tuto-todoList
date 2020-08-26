@@ -1,0 +1,34 @@
+#champ{
+    width: 80vw;
+}
+
+
+
+
+
+li{
+text-transform: capitalize;
+font-size: 18px;
+}
+
+li:hover{
+    background-color: azure;
+    border-radius: 5px;
+}
+
+
+.material-icons{
+    vertical-align: sub;
+    color: orangered;
+    transition: all 0.5s;
+}
+
+.material-icons:hover{
+    transform: rotate(360deg);
+    cursor: pointer;
+}
+
+#noTache{
+    display: none;
+    font-style: italic;
+}
