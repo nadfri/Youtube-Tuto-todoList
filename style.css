@@ -1,34 +1,124 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    height: 100%;
+}
+
+
+body{
+    background: linear-gradient(#22c1c3 0%, #dfdfdf 100%);
+    height: 100%;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+input{
+    outline: none; /*enleve le surlignage du focus sur les input*/
+}
+
+form{
+    height: 8vh;
+    margin-bottom: 3vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+#champ,#btnAjouter{
+    height: 100%;
+    border-radius: 5px;
+    border: 2px solid teal;
+    font-size: 5vw;
+}
+
 #champ{
-    width: 80vw;
+    width: 82vw;
+    background-color: #9fc6c7;
+    padding-left: 1vw;
+}
+
+#btnAjouter{
+    flex: auto;   /*prend tout l'espace restant*/
+    background-color: #8add92;
+    color: teal;
+
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    cursor: pointer;
+}
+
+#btnAjouter:active{
+    background-color: #60ff60;
 }
 
 
 
+
+ol{
+    list-style: none;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    counter-reset: my-awesome-counter;
+    color:teal;
+}
 
 
 li{
-text-transform: capitalize;
-font-size: 18px;
-}
-
-li:hover{
-    background-color: azure;
+    counter-increment: my-awesome-counter;
+    text-transform: capitalize;
+    word-wrap: break-word;
+    background-color: #7bc7c8;
     border-radius: 5px;
-}
+    margin-bottom: 2px;
+    font-size: 20px;
 
-
-.material-icons{
-    vertical-align: sub;
-    color: orangered;
     transition: all 0.5s;
+    -webkit-transition: all 0.5s;
 }
 
-.material-icons:hover{
-    transform: rotate(360deg);
+li::before {
+    content: counter(my-awesome-counter) "~ "; /*permet de modifier le separatur */
+    color:#5a7c81;
+}
+
+.spanOpt{
+    position: absolute;
+    right: 1vw;
+}
+
+.delete, .urgent{
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
     cursor: pointer;
 }
+
+.delete:hover, .urgent:hover{
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+}
+
+.delete{
+    color: orangered;
+}
+
+.urgent{
+    right: 25px;
+    cursor: pointer;
+    color: gray;
+}
+
+
+.gold{
+    color: gold;
+}
+
 
 #noTache{
     display: none;
     font-style: italic;
+    margin-left: 1vw;
 }
+
