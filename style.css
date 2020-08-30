@@ -10,37 +10,36 @@ html{
 
 
 body{
-    background: linear-gradient(#22c1c3 0%, #dfdfdf 100%);
     height: 100%;
     width: 100%;
     font-family: 'Roboto', sans-serif;
+    background: linear-gradient(#22c1c3 0%, #dfdfdf 100%);
 }
 
 input{
     outline: none; /*enleve le surlignage du focus sur les input*/
 }
 
-form{
+.form{
+    display: flex;
     height: 8vh;
     margin-bottom: 3vh;
-    display: flex;
-    justify-content: space-around;
 }
 
-#champ,#btnAjouter{
+.champ,.btnAjouter{
     height: 100%;
     border-radius: 5px;
     border: 2px solid teal;
     font-size: 5vw;
 }
 
-#champ{
+.champ{
     width: 82vw;
     background-color: #9fc6c7;
     padding-left: 1vw;
 }
 
-#btnAjouter{
+.btnAjouter{
     flex: auto;   /*prend tout l'espace restant*/
     background-color: #8add92;
     color: teal;
@@ -50,37 +49,36 @@ form{
     cursor: pointer;
 }
 
-#btnAjouter:active{
+.btnAjouter:active{
     background-color: #60ff60;
 }
 
 
-
-
-ol{
+.ol{
     list-style: none;
+    counter-reset: my-awesome-counter;
+
     padding-left: 1vw;
     padding-right: 1vw;
-    counter-reset: my-awesome-counter;
     color:teal;
+
+    
 }
 
 
-li{
+.li{
     counter-increment: my-awesome-counter;
+
     text-transform: capitalize;
     word-wrap: break-word;
     background-color: #7bc7c8;
     border-radius: 5px;
     margin-bottom: 2px;
     font-size: 20px;
-
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
 }
 
-li::before {
-    content: counter(my-awesome-counter) "~ "; /*permet de modifier le separatur */
+.li::before {
+    content: counter(my-awesome-counter) "~ "; /*permet de modifier le separateur */
     color:#5a7c81;
 }
 
@@ -105,18 +103,14 @@ li::before {
 }
 
 .urgent{
-    right: 25px;
-    cursor: pointer;
     color: gray;
 }
-
 
 .gold{
     color: gold;
 }
 
-
-#noTache{
+.noTache{
     display: none;
     font-style: italic;
     margin-left: 1vw;

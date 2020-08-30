@@ -1,10 +1,10 @@
 "use strict";
 //verification si une clé existe dans le localStorage
-ul.innerHTML = (localStorage.getItem('list') != null)? 
+ol.innerHTML = (localStorage.getItem('list') != null)? 
 localStorage.getItem('list') : "";
 
 //affiche l'info si aucune tache est en cours
-noTache.style.display = (ul.innerHTML == "")? "block" : "none";
+noTache.style.display = (ol.innerHTML == "")? "block" : "none";
 
 //ajout de l'event del sur les span issus du storage
 const spanDel = document.querySelectorAll(".delete");
@@ -16,11 +16,12 @@ for(let span of spanUrg) span.onclick = () => urgent(span);
 form.onsubmit = () => {
 
     const li      = document.createElement("li");
+    li.classList.add("li");
     const spanOpt    = document.createElement("span");
     const spanUrg = document.createElement("span"); //creation d'une span
     const spanDel = document.createElement("span"); 
 
-    spanOpt.classList.add("spanOpt")
+    spanOpt.classList.add("spanOpt");
 
     spanDel.classList.add("material-icons", "delete"); //ajout de la classe materiel-icons et delete
     spanDel.textContent = "delete_forever"; //ajout de l'icone poubelle
@@ -34,7 +35,7 @@ form.onsubmit = () => {
     spanOpt.appendChild(spanDel); //ajout de la span icone delete à li
     
     li.appendChild(spanOpt);
-    ul.appendChild(li); //ajout du li à ul
+    ol.appendChild(li); //ajout du li à ol
 
     champ.value = ""; // efface le champ
     noTache.style.display = "none"; //enleve la div pas de tache en cours
@@ -44,7 +45,7 @@ form.onsubmit = () => {
     spanUrg.onclick = () => urgent(spanUrg);
 
     //Sauvegarde du HTML dans le storage
-    localStorage.setItem("list", ul.innerHTML);
+    localStorage.setItem("list", ol.innerHTML);
 
     return false; //empeche l'actualisation de la page
     //e.preventDefault(); idem à return false
@@ -53,14 +54,14 @@ form.onsubmit = () => {
 //fonction pour supprimer une tache
 function del(el){
     el.parentElement.parentElement.remove(); //supprime le parent et les enfants
-    localStorage.setItem("list", ul.innerHTML); //met à jour le storage
-    noTache.style.display = (ul.innerHTML == "")? "block" : "none"; //met à jour la div tache en cours
+    localStorage.setItem("list", ol.innerHTML); //met à jour le storage
+    noTache.style.display = (ol.innerHTML == "")? "block" : "none"; //met à jour la div tache en cours
 }
 
 function urgent(el)
 {
     el.classList.toggle("gold");
-    localStorage.setItem("list", ul.innerHTML); //save
+    localStorage.setItem("list", ol.innerHTML); //save
 }
 
 
