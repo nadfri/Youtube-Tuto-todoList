@@ -6,7 +6,7 @@ localStorage.getItem('list') : "";
 //affiche l'info si aucune tache est en cours
 noTache.style.display = (ol.innerHTML == "")? "block" : "none";
 
-//ajout de l'event del sur les span issus du storage
+//ajout de l'event del/urgent sur les span issus du storage
 const spanDel = document.querySelectorAll(".delete");
 for(let span of spanDel) span.onclick = () => del(span);
 
@@ -15,29 +15,28 @@ for(let span of spanUrg) span.onclick = () => urgent(span);
 
 form.onsubmit = () => {
 
-    const li      = document.createElement("li");
+    const li            = document.createElement("li");
     li.classList.add("li");
-    const spanOpt    = document.createElement("span");
-    const spanUrg = document.createElement("span"); //creation d'une span
-    const spanDel = document.createElement("span"); 
+    li.textContent      = champ.value; //li prend le contenu HTML de champ
 
+    const spanOpt       = document.createElement("span");
     spanOpt.classList.add("spanOpt");
 
+    const spanDel       = document.createElement("span"); 
     spanDel.classList.add("material-icons", "delete"); //ajout de la classe materiel-icons et delete
     spanDel.textContent = "delete_forever"; //ajout de l'icone poubelle
 
+    const spanUrg       = document.createElement("span");
     spanUrg.classList.add("material-icons", "urgent"); //ajout de la classe materiel-icons et urgent
     spanUrg.textContent = "stars"; //ajout de l'icone stars
 
-    li.textContent = champ.value; //li prend le contenu HTML de champ
-
     spanOpt.appendChild(spanUrg);
     spanOpt.appendChild(spanDel); //ajout de la span icone delete à li
-    
     li.appendChild(spanOpt);
+
     ol.appendChild(li); //ajout du li à ol
 
-    champ.value = ""; // efface le champ
+    champ.value           = ""; // efface le champ
     noTache.style.display = "none"; //enleve la div pas de tache en cours
 
     //ajout de l'event del et urgent sur les span créées
@@ -74,7 +73,5 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 //Empeche le resizing à l'apparition du clavier
 const metas = document.getElementsByTagName('meta');
 metas[1].content = 'width=device-width, height=' + window.innerHeight + ' initial-scale=1.0, maximum-scale=5.0,user-scalable=0';
-
-
 
 
