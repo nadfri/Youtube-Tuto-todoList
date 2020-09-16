@@ -7,8 +7,8 @@ localStorage.getItem('list') : "";
 noTache.style.display = (ol.innerHTML == "")? "block" : "none";
 
 //ajout de l'event del/urgent sur les span issus du storage
-const spanDel = document.querySelectorAll(".delete");
-for(let span of spanDel) span.onclick = () => del(span);
+const spanDels = document.querySelectorAll(".delete");
+for(let span of spanDels) span.onclick = () => del(span);
 
 const spanUrg = document.querySelectorAll(".urgent");
 for(let span of spanUrg) span.onclick = () => urgent(span);
