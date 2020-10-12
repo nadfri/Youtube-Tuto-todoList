@@ -10,17 +10,14 @@ noTache.style.display = (ol.innerHTML == "")? "block" : "none";
 const spanDels = document.querySelectorAll(".delete");
 for(let span of spanDels) span.onclick = () => del(span);
 
-const spanUrg = document.querySelectorAll(".urgent");
-for(let span of spanUrg) span.onclick = () => urgent(span);
+const spanUrgs = document.querySelectorAll(".urgent");
+for(let span of spanUrgs) span.onclick = () => urgent(span);
 
 form.onsubmit = () => {
 
     const li            = document.createElement("li");
-    li.classList.add("li");
     li.textContent      = champ.value; //li prend le contenu HTML de champ
-
-    const spanOpt       = document.createElement("span");
-    spanOpt.classList.add("spanOpt");
+    li.classList.add("li");
 
     const spanDel       = document.createElement("span"); 
     spanDel.classList.add("material-icons", "delete"); //ajout de la classe materiel-icons et delete
@@ -30,8 +27,11 @@ form.onsubmit = () => {
     spanUrg.classList.add("material-icons", "urgent"); //ajout de la classe materiel-icons et urgent
     spanUrg.textContent = "stars"; //ajout de l'icone stars
 
+    const spanOpt       = document.createElement("span");
+    spanOpt.classList.add("spanOpt");
     spanOpt.appendChild(spanUrg);
     spanOpt.appendChild(spanDel); //ajout de la span icone delete à li
+
     li.appendChild(spanOpt);
 
     ol.appendChild(li); //ajout du li à ol

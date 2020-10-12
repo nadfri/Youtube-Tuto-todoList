@@ -4,14 +4,12 @@
     padding:0;
 }
 
-html{
+html,body{
     height: 100%;
 }
 
 
 body{
-    height: 100%;
-    width: 100%;
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(#22c1c3 0%, #dfdfdf 100%);
 }
@@ -22,12 +20,12 @@ input{
 
 .form{
     display: flex;
+    justify-content: space-around;
     height: 8vh;
     margin-bottom: 3vh;
 }
 
 .champ,.btnAjouter{
-    height: 100%;
     border-radius: 5px;
     border: 2px solid teal;
     font-size: 5vw;
@@ -40,7 +38,7 @@ input{
 }
 
 .btnAjouter{
-    flex: auto;   /*prend tout l'espace restant*/
+    width: 17vw;
     background-color: #8add92;
     color: teal;
 
@@ -72,7 +70,7 @@ input{
     background-color: #7bc7c8;
     border-radius: 5px;
     margin-bottom: 2px;
-    font-size: 20px;
+    font-size: 4vw;
 }
 
 .li::before {
@@ -112,5 +110,13 @@ input{
     display: none;
     font-style: italic;
     margin-left: 1vw;
+}
+
+/* Media Queries */
+@media screen and (min-width: 900px)
+{
+    .champ,.btnAjouter,.li{
+        font-size: 2rem;
+    }
 }
 
