@@ -34,6 +34,7 @@ form.onsubmit = () => {
     spanOpt.appendChild(spanUrg);
     spanOpt.appendChild(spanDel); //ajout de la span icone delete à li
 
+    li.appendChild(texte);
     li.appendChild(spanOpt);
 
     ol.appendChild(li); //ajout du li à ol
