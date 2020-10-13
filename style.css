@@ -120,6 +120,11 @@ li::before {
 /* Media Queries */
 @media screen and (min-width: 800px)
 {
+    body{
+        min-height: 1500px;
+    }
+    
+    
     .champ,
     .btnAjouter,
     .noTache,
