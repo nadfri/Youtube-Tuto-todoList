@@ -16,19 +16,21 @@ for(let span of spanUrgs) span.onclick = () => urgent(span);
 form.onsubmit = () => {
 
     const li            = document.createElement("li");
-    li.textContent      = champ.value; //li prend le contenu HTML de champ
-    li.classList.add("li");
-
+    const texte         = document.createElement("span");
+    texte.classList.add("texte");
+    texte.textContent   = champ.value; //recupere le texte du champ
+  
     const spanDel       = document.createElement("span"); 
-    spanDel.classList.add("material-icons", "delete"); //ajout de la classe materiel-icons et delete
+    spanDel.classList.add("material-icons", "delete", "md-24"); //ajout de la classe materiel-icons et delete
     spanDel.textContent = "delete_forever"; //ajout de l'icone poubelle
 
     const spanUrg       = document.createElement("span");
-    spanUrg.classList.add("material-icons", "urgent"); //ajout de la classe materiel-icons et urgent
+    spanUrg.classList.add("material-icons", "urgent", "md-24"); //ajout de la classe materiel-icons et urgent
     spanUrg.textContent = "stars"; //ajout de l'icone stars
 
     const spanOpt       = document.createElement("span");
     spanOpt.classList.add("spanOpt");
+
     spanOpt.appendChild(spanUrg);
     spanOpt.appendChild(spanDel); //ajout de la span icone delete à li
 
