@@ -70,9 +70,8 @@ li{
     border-radius: 5px;
     margin-bottom: 2px;
     font-size: 6vw;
-
     display: flex;
-    align-items: center;
+    align-items: center; /*permet le centrage des options*/
 }
 
 li::before {
@@ -80,16 +79,15 @@ li::before {
     color:#5a7c81;
 }
 
-
 .texte{
-    display: inline-block;
-    width: 90%;
-    word-break: break-all;
+    display: inline-block; /*permet de mettre un width*/
+    width: 88%;
+    
 }
 
 .spanOpt{
     display: flex;
-    align-items: center;
+    align-items: center; /*centre les icons*/
 }
 
 
@@ -105,7 +103,9 @@ li::before {
     transform: rotate(360deg);
 }
 
-.material-icons.md-24 { font-size: 6vw; }
+.material-icons.md-24 { 
+    font-size: 6vw;
+}
 
 .delete{color: orangered;}
 .urgent{color: gray;}
