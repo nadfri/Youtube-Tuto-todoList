@@ -8,7 +8,6 @@ html,body{
     height: 100%;
 }
 
-
 body{
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(#22c1c3 0%, #dfdfdf 100%);
@@ -50,8 +49,7 @@ input{
 
 .btnAjouter:active{
     background-color: #60ff60;
-}
-
+} 
 
 ol{
     list-style: none;
@@ -60,10 +58,8 @@ ol{
     padding-right: 1vw;
 }
 
-
 li{
     counter-increment: my-awesome-counter;
-
     text-transform: capitalize;
     background-color: #7bc7c8;
     color:teal;
@@ -81,15 +77,15 @@ li::before {
 
 .texte{
     display: inline-block; /*permet de mettre un width*/
-    width: 88%;
-    
+    width: 78vw;
+    word-wrap: break-word; /*permet le retour à la ligne*/
 }
 
 .spanOpt{
+    flex: auto;
     display: flex;
-    align-items: center; /*centre les icons*/
+    justify-content: flex-end;
 }
-
 
 .delete, 
 .urgent{
@@ -118,15 +114,13 @@ li::before {
 }
 
 /* Media Queries */
-@media screen and (min-width: 800px)
-{
-    body{
-        min-height: 1500px;
-    }
-    
-    
+@media screen and (min-width: 700px)
+{    
     .champ,
-    .btnAjouter,
+    .btnAjouter{
+        font-size: 2.5rem;
+    }
+
     .noTache,
     .material-icons.md-24,
     li{
