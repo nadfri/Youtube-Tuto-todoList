@@ -66,10 +66,25 @@ function urgent(el)
     localStorage.setItem("list", ol.innerHTML); //save
 }
 
-
-
 //Empeche le resizing à l'apparition du clavier
 const metas = document.getElementsByTagName('meta');
 metas[1].content = 'width=device-width, height=' + window.innerHeight + ' initial-scale=1.0, maximum-scale=5.0,user-scalable=0';
 
-
+//*************Service Worker ******************/
+//Register service worker to control making site work offline
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('sw.js')
+        .then(registration => {
+          console.log(
+            `Service Worker enregistré!\nRessource: ${registration.scope}`
+          );
+        })
+        .catch(err => {
+          console.log(
+            `Echec de l'enregistrement du Service Worker: ${err}`
+          );
+        });
+    });
+  }
