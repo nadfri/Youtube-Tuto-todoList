@@ -113,8 +113,7 @@ li::before {
     margin-left: 1vw;
 }
 
-
-.add-button {
+.addBtn{
     position: absolute;
     bottom: 0;
     left: 0;
@@ -126,9 +125,14 @@ li::before {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.5s;
+    transform: translateY(0);
+
   }
 
-
+  .down{
+    transform: translateY(100%);
+  }
 
 
 /* Media Queries */
