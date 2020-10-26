@@ -127,11 +127,12 @@ li::before {
     justify-content: center;
     align-items: center;
     transition: all 0.5s;
-    transform: translateY(0);
+    transform: translateY(100%);
   }
 
-  .down{
-    transform: translateY(100%);
+  .up{
+    transform: translateY(0);
+    transition-delay: 1s;
   }
 
 
