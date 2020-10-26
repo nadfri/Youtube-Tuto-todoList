@@ -126,6 +126,7 @@ li::before {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition-delay: 0.3s;
     transition: all 0.5s;
     transform: translateY(0);
 

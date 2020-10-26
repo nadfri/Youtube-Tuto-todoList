@@ -69,7 +69,6 @@ function urgent(el) {
 const metas = document.getElementsByTagName('meta');
 metas[1].content = `width=device-width, height=${window.innerHeight} initial-scale=1.0, maximum-scale=5.0,user-scalable=0`;
 
-
 //Register service worker to control making site work offline
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -84,29 +83,22 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-
-/**Bouton Installer */
+/**Bouton Installation Application*/
 let deferredPrompt;
 
-window.addEventListener('beforeinstallprompt', (e) => {
+window.addEventListener('beforeinstallprompt', (e) => 
+{
     e.preventDefault(); // annuler la banniere par defaut
     installBtn.classList.remove("down"); //faire apparaitre le bouton
     deferredPrompt = e; //enregistrer l'event pour plutard
 
-    installBtn.addEventListener('click', (e) => {
-      installBtn.classList.add("down"); //faire disparaitre le bouton
+    installBtn.addEventListener('click', (e) => 
+    {
       deferredPrompt.prompt(); //permettre l'installation
-      // Wait for the user to respond to the prompt
-      deferredPrompt.userChoice.then((choiceResult) => {
-        //   if (choiceResult.outcome === 'accepted') {
-        //     console.log('User accepted the A2HS prompt');
-        //   } else {
-        //     console.log('User dismissed the A2HS prompt');
-        //   }
-          deferredPrompt = null;
-        });
+      installBtn.classList.add("down"); //faire disparaitre le bouton
+      deferredPrompt.userChoice.then(deferredPrompt = null); //efface l'event
     });
-  });
+});
 
 
 
