@@ -89,7 +89,7 @@ let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => 
 {
     e.preventDefault(); // annuler la banniere par defaut
-    setTimeout(installBtn.classList.remove("down"),500); //faire apparaitre le bouton
+    setTimeout(()=>installBtn.classList.remove("down"),500); //faire apparaitre le bouton
     deferredPrompt = e; //enregistrer l'event pour plutard
 
     installBtn.addEventListener('click', (e) => 
