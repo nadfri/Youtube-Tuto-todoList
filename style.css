@@ -128,7 +128,7 @@ li::before {
     justify-content: center;
     align-items: center;
     transition: all 0.5s;
-    /* transform: translateX(-100%); */
+    transform: translateX(-100%);
   }
 
   .slide{
