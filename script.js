@@ -84,20 +84,16 @@ if ('serviceWorker' in navigator) {
 }
 
 /**Bouton Installation Application*/
-let deferredPrompt;
-
-window.onbeforeinstallprompt = (e) => 
+window.onbeforeinstallprompt = (event) => 
 {
-    e.preventDefault(); // annuler la banniere par defaut
+    event.preventDefault(); // annuler la banniere par defaut
     installBtn.classList.add("slide"); //affiche la banniere perso
-    //deferredPrompt = e; //enregistrer l'event pour plus tard
 
     installBtn.onclick = () => 
     {
         installBtn.classList.remove("slide"); //faire disparaitre le bouton
         setTimeout(()=>installBtn.style.display = "none",500);
-        e.prompt(); //permettre l'installation
-        e = null; //efface l'event
+        event.prompt(); //permettre l'installation
     };
 };
 
