@@ -113,13 +113,14 @@ li::before {
     margin-left: 1vw;
 }
 
-.addBtn{
+.installBtn{
     position: absolute;
     bottom: 0;
     left: 0;
     height: 8vh;
     width: 100%;
     border: none;
+    outline: none;
     background-color: teal;
     color: white;
     display: flex;
