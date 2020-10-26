@@ -89,15 +89,13 @@ let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => 
 {
     e.preventDefault(); // annuler la banniere par defaut
-    installBtn.style.display = "flex";//faire apparaitre le bouton
-    installBtn.classList.remove("down");
+    installBtn.classList.remove("right");
     deferredPrompt = e; //enregistrer l'event pour plutard
 
     installBtn.addEventListener('click', (e) => 
     {
       deferredPrompt.prompt(); //permettre l'installation
-      installBtn.classList.add("down"); //faire disparaitre le bouton
-      setTimeout(()=>installBtn.style.display = "none",500);
+      installBtn.classList.add("right"); //faire disparaitre le bouton
       deferredPrompt.userChoice.then(deferredPrompt = null); //efface l'event
     });
 });
