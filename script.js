@@ -94,16 +94,16 @@ window.addEventListener('beforeinstallprompt', (e) =>
 
     installBtn.addEventListener('click', (e) => 
     {
-        installBtn.classList.remove("slide"); //faire disparaitre le bouton
+        
         deferredPrompt.prompt(); //permettre l'installation
 
         deferredPrompt.userChoice.then((choiceResult) => {
             if (choiceResult.outcome === 'accepted') 
-                 installBtn.hidden = true;
+                installBtn.classList.remove("slide"); //faire disparaitre le bouton
                  
-            else console.log('User dismissed the A2HS prompt');
+            else  installBtn.classList.add("slide");
 
-            deferredPrompt = null; //efface l'event
+            //deferredPrompt = null; //efface l'event
       });
     });
 });
