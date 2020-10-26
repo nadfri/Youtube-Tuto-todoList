@@ -97,16 +97,19 @@ window.addEventListener('beforeinstallprompt', (e) =>
         
         deferredPrompt.prompt(); //permettre l'installation
 
-        deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') 
-                installBtn.classList.remove("slide"); //faire disparaitre le bouton
+    //     deferredPrompt.userChoice.then((choiceResult) => {
+    //         if (choiceResult.outcome === 'accepted') 
+    //             installBtn.classList.remove("slide"); //faire disparaitre le bouton
                  
-            else  installBtn.classList.add("slide");
+    //         else  installBtn.classList.add("slide");
 
-            //deferredPrompt = null; //efface l'event
-      });
+        deferredPrompt = null; //efface l'event
+    //   });
     });
 });
 
+window.addEventListener("appinstalled", evt => {
+    installBtn.classList.remove("slide");
+  });
 
 
