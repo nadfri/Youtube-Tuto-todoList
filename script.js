@@ -95,6 +95,7 @@ window.onbeforeinstallprompt = (e) =>
     installBtn.onclick = () => 
     {
         installBtn.classList.remove("slide"); //faire disparaitre le bouton
+        install.style.display = "none";
         e.prompt(); //permettre l'installation
         e = null; //efface l'event
     };
