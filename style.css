@@ -134,6 +134,7 @@ li::before {
 
   .down{
     transform: translateY(100%);
+    transition-delay:0.5s;
   }
 
 
