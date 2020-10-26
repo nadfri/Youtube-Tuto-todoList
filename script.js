@@ -89,13 +89,13 @@ let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => 
 {
     e.preventDefault(); // annuler la banniere par defaut
-    installBtn.classList.remove("left");
-    deferredPrompt = e; //enregistrer l'event pour plutard
+    installBtn.classList.add("slide"); //affiche la banniere perso
+    deferredPrompt = e; //enregistrer l'event pour plus tard
 
     installBtn.addEventListener('click', (e) => 
     {
       deferredPrompt.prompt(); //permettre l'installation
-      installBtn.classList.add("left"); //faire disparaitre le bouton
+      installBtn.classList.remove("slide"); //faire disparaitre le bouton
       deferredPrompt.userChoice.then(deferredPrompt = null); //efface l'event
     });
 });
