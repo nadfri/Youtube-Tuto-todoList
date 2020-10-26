@@ -126,15 +126,12 @@ li::before {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition-delay: 0.3s;
     transition: all 0.5s;
     transform: translateY(0);
-
   }
 
   .down{
     transform: translateY(100%);
-    transition-delay:0.5s;
   }
 
 
@@ -150,6 +147,10 @@ li::before {
     .material-icons.md-24,
     li{
         font-size: 2rem;
+    }
+
+    .installBtn{
+        height: 35px;
     }
 }
 
