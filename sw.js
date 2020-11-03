@@ -11,13 +11,17 @@ if (workbox)
   registerRoute(
     ({request}) => request.destination === 'document'||
                    request.destination === 'script'  ||
-                   request.destination === 'style',               
+                   request.destination === 'style',
+                   
     new StaleWhileRevalidate()
   );
 
-  ({request}) => request.destination === 'image',
+  registerRoute(
+    // Cache image files.
+    ({request}) => request.destination === 'image',
     // Use the cache if it's available.
-    new CacheFirst({cacheName: 'image-cache',});
+    new CacheFirst({cacheName: 'image-cache',}) // Use a custom cache name.
+  );
 }
 
 else { console.log(`Boo! Workbox of TodoList didn't load 😬`); }
