@@ -8,21 +8,33 @@ if (workbox) {
     new workbox.strategies.StaleWhileRevalidate()
   );
 
-// Cache the Google Fonts stylesheets with a stale-while-revalidate strategy.
-    workbox.routing.registerRoute(
-    ({url}) => url.origin === 'https://fonts.googleapis.com',
-    new workbox.strategies.StaleWhileRevalidate({
-      cacheName: 'google-fonts-stylesheets',
-    })
-  );
-  
-  // Cache the underlying font files with a cache-first
   workbox.routing.registerRoute(
-    ({url}) => url.origin === 'https://fonts.gstatic.com',
-    new workbox.strategies.CacheFirst({
-      cacheName: 'google-fonts-webfonts',
-      
-    })
+    ({ url }) => url.origin === 'https://fonts.googleapis.com' ||
+      url.origin === 'https://fonts.gstatic.com',
+      new workbox.strategies.StaleWhileRevalidate({
+      cacheName: 'google-fonts',
+      plugins: [
+        new workbox.expiration.ExpirationPlugin({ maxEntries: 20 }),
+      ],
+    }),
   );
 
-} else {console.log(`Boo! Workbox of TodoList didn't load 😬`);}
+
+  // // Cache the Google Fonts stylesheets with a stale-while-revalidate strategy.
+  // workbox.routing.registerRoute(
+  //   ({ url }) => url.origin === 'https://fonts.googleapis.com',
+  //   new workbox.strategies.StaleWhileRevalidate({
+  //     cacheName: 'google-fonts-stylesheets',
+  //   })
+  // );
+
+  // // Cache the underlying font files with a cache-first
+  // workbox.routing.registerRoute(
+  //   ({ url }) => url.origin === 'https://fonts.gstatic.com',
+  //   new workbox.strategies.CacheFirst({
+  //     cacheName: 'google-fonts-webfonts',
+
+  //   })
+  // );
+
+} else { console.log(`Boo! Workbox of TodoList didn't load 😬`); }
