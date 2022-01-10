@@ -1,5 +1,4 @@
-# Tuto-TodoList
-Tutoriel pour apprendre à faire une todo list en pure Javascript
+# Tuto de ma chaine Youtube : TodoList de A à Z en JavaScript
 -Gerer les evevements
 -Gerer le localStorage
 -Apprendre à transformer le site en PWA (installable)
