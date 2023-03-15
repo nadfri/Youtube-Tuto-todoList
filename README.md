@@ -5,4 +5,4 @@
 
 Lien du tuto: https://www.youtube.com/playlist?list=PLn0WRmKoGQMNkJCgXeLpUj0DkLN6pkyRy
 
-Lien de l'app: https://nadfri.github.io/Tuto-todoList
+Lien de l'app: https://nadfri.github.io/Youtube-Tuto-todoList/
